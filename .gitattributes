@@ -18,7 +18,7 @@
 *.mb uselfs
 *.ma uselfs
 *.mp3 uselfs
-*.wav uselfs
+*.wav filter=lfs diff=lfs merge=lfs -text
 *.ogg uselfs
 *.aiff uselfs
 *.mp4 uselfs
@@ -28,7 +28,6 @@
 *.ttf uselfs
 *.otf uselfs
 *.unitypackage uselfs
-
 #Force text for mergeable files
 *.unity text merge=unityyamlmerge
 *.prefab text merge=unityyamlmerge
@@ -37,4 +36,3 @@
 *.controller text merge=unityyamlmerge
 *.meta text merge=unityyamlmerge
 *.asset text merge=unityyamlmerge
-*.wav filter=lfs diff=lfs merge=lfs -text
