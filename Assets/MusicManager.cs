@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    [Tooltip("Plaats hier de AudioSource component die de muziek zal afspelen.")]
+    [Tooltip("Deze AudioSource speelt de muziek af. Wordt automatisch gevonden als je hem leeg laat.")]
     public AudioSource musicSource;
 
     [Tooltip("Sleep hier al je liedjes in de gewenste volgorde.")]
@@ -10,25 +10,34 @@ public class MusicManager : MonoBehaviour
 
     private int currentTrackIndex = -1;
 
+    void Awake()
+    {
+        if (musicSource == null)
+        {
+            musicSource = GetComponent<AudioSource>();
+        }
+        if (musicSource == null)
+        {
+            musicSource = gameObject.AddComponent<AudioSource>();
+            musicSource.playOnAwake = false;
+        }
+    }
+
     void Start()
     {
-        // Start met het eerste liedje
         NextTrack();
     }
 
-    // Deze publieke functie wordt aangeroepen om naar het volgende liedje te gaan
     public void NextTrack()
     {
         if (musicPlaylist.Length == 0)
         {
-            Debug.LogWarning("De music playlist is leeg!");
+            Debug.LogWarning("De music playlist is leeg! Voeg liedjes toe in de Inspector.");
             return;
         }
 
-        // Ga naar de volgende index en begin opnieuw als we aan het einde zijn
         currentTrackIndex = (currentTrackIndex + 1) % musicPlaylist.Length;
 
-        // Stel de nieuwe audio clip in en speel hem af
         musicSource.clip = musicPlaylist[currentTrackIndex];
         musicSource.Play();
 

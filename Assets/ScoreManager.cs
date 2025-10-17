@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
 
     //private int currentMultiplier = 0; 
 
-   
+
 
     private int score = 0;
 
@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
         // Als de speler op pijl-omhoog drukt...
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            int currentMultiplier = hypeController.GetCurrentMultiplier(); 
+            int currentMultiplier = hypeController.GetCurrentMultiplier();
 
             score += currentMultiplier;
             UpdateScoreText();
@@ -52,8 +52,16 @@ public class ScoreManager : MonoBehaviour
     {
         if (multiplierText != null)
         {
-            int currentMultiplier = hypeController.GetCurrentMultiplier(); 
+            int currentMultiplier = hypeController.GetCurrentMultiplier();
             multiplierText.text = "x" + currentMultiplier.ToString();
         }
+    }
+
+    // De nieuwe reset-functie
+    public void ResetScore()
+    {
+        score = 0;
+        UpdateScoreText();
+        UpdateMultiplierText();
     }
 }

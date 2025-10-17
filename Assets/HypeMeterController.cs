@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class HypeMeterController : MonoBehaviour
 {
     // --- PUBLIEKE TOEGANG ---
+    [Header("Manager Koppelingen")]
+    public ScoreManager scoreManager;
     public static HypeMeterController instance;
 
     // --- SLIDER & INSTELLINGEN ---
@@ -16,6 +18,13 @@ public class HypeMeterController : MonoBehaviour
 
     public MusicManager musicManager;
     public DanceManager danceManager;
+   
+    // --- GELUIDSINSTELLINGEN ---
+    [Header("Geluidseffecten")]
+    public AudioClip cheerSound; // Het geluid voor pijl omhoog
+    public AudioClip booSound;   // Het geluid voor pijl omlaag
+
+    private AudioSource sfxSource; // De component die het geluid afspeelt
 
     // --- PUBLIEKE EIGENSCHAPPEN ---
     public float NormalizedHype
@@ -37,6 +46,7 @@ public class HypeMeterController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        sfxSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -45,15 +55,26 @@ public class HypeMeterController : MonoBehaviour
         currentHype = maxHype / 2f;
 
         hypeSlider.maxValue = maxHype;
-        UpdateHypeUI(); // Zorg ervoor dat de UI direct de startwaarde toont
+        //UpdateHypeUI(); // Zorg ervoor dat de UI direct de startwaarde toont
     }
 
     void Update()
     {
+        // Optie A: Reset het spel met de 'R' toets
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetGame();
+        }
+
         // Reageer op input om de hype te verhogen
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             currentHype += hypeIncreaseAmount;
+            // Speel het juich-geluid af
+            if (cheerSound != null)
+            {
+                //sfxSource.PlayOneShot(cheerSound);
+            }
         }
 
         // --- NIEUW: Hype handmatig verlagen ---
@@ -61,6 +82,11 @@ public class HypeMeterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             currentHype -= hypeIncreaseAmount; // We gebruiken dezelfde waarde als voor het verhogen
+            // Speel het boe-geluid af
+            if (booSound != null)
+            {
+                sfxSource.PlayOneShot(booSound);
+            }
         }
 
         // Luister naar de pijl-naar-rechts toets
@@ -111,11 +137,30 @@ public class HypeMeterController : MonoBehaviour
         hypeSlider.value = currentHype;
     }
 
+    public void ResetHype()
+    {
+        currentHype = maxHype / 2f;
+        UpdateHypeUI();
+    }
+
     public int GetCurrentMultiplier()
     {
         if (NormalizedHype >= 0.75f) { return 4; }
         else if (NormalizedHype >= 0.50f) { return 3; }
         else if (NormalizedHype >= 0.25f) { return 2; }
         else { return 1; }
+    }
+
+    public void ResetGame()
+    {
+        Debug.Log("Spel wordt gereset!");
+
+        if (scoreManager != null)
+        {
+            scoreManager.ResetScore();
+        }
+
+        ResetHype();
+       
     }
 }
