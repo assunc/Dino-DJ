@@ -3021,8 +3021,9 @@ MonoBehaviour:
   hypeDecreaseRate: 2
   musicManager: {fileID: 1779942174}
   danceManager: {fileID: 1733227938}
-  cheerSound: {fileID: 8300000, guid: 688813d5eb47db64ebac0c7813377d9e, type: 3}
+  glassSound: {fileID: 8300000, guid: 7ecc2b2b8504407458fb9d66645a4ad6, type: 3}
   booSound: {fileID: 8300000, guid: 4a7d3e7b077c51147a0d6adccbd12c29, type: 3}
+  ballSound: {fileID: 8300000, guid: fdcfc1499b2ab7844be8fa38da2fe9d7, type: 3}
 --- !u!4 &1733227937
 Transform:
   m_ObjectHideFlags: 0
@@ -3083,7 +3084,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -3197,6 +3198,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 49369bdd5dab8e74495da2a9711e6a6a, type: 3}
   - {fileID: 8300000, guid: 87e573738e9a1994baf4a651926668ca, type: 3}
   - {fileID: 8300000, guid: cb610e07a8e43d9499d05f020ba11c6e, type: 3}
+  - {fileID: 8300000, guid: a6b2cd41225331448bfffac54a8486af, type: 3}
+  - {fileID: 8300000, guid: 319b17fed05f7184c8a4d76d8b25ee8c, type: 3}
+  - {fileID: 8300000, guid: 67a68242d1b57be40b047a5de120cf05, type: 3}
+  - {fileID: 8300000, guid: f9523def71ec81c418417cacda18fe85, type: 3}
+  - {fileID: 8300000, guid: 5d2600687e009f3498b8d8117907f659, type: 3}
+  - {fileID: 8300000, guid: 721639c3638ff7440ac36b26bdce1988, type: 3}
+  - {fileID: 8300000, guid: 765a2667515e75a4e8202dd773475a08, type: 3}
 --- !u!82 &1779942175
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3210,7 +3218,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

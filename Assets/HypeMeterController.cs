@@ -21,8 +21,9 @@ public class HypeMeterController : MonoBehaviour
    
     // --- GELUIDSINSTELLINGEN ---
     [Header("Geluidseffecten")]
-    public AudioClip cheerSound; // Het geluid voor pijl omhoog
+    public AudioClip glassSound; // Het geluid voor pijl omhoog
     public AudioClip booSound;   // Het geluid voor pijl omlaag
+    public AudioClip ballSound;
 
     private AudioSource sfxSource; // De component die het geluid afspeelt
 
@@ -70,10 +71,23 @@ public class HypeMeterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             currentHype += hypeIncreaseAmount;
-            // Speel het juich-geluid af
-            if (cheerSound != null)
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Speel het geluid af
+            if (glassSound != null)
             {
-                //sfxSource.PlayOneShot(cheerSound);
+                sfxSource.PlayOneShot(glassSound);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            // Speel het geluid af
+            if (ballSound != null)
+            {
+                sfxSource.PlayOneShot(ballSound);
             }
         }
 
