@@ -2804,17 +2804,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicManager
   musicSource: {fileID: 1779942175}
   musicPlaylist:
-  - {fileID: 8300000, guid: d8b48be67b9f66a4eabc8abdf78926b2, type: 3}
-  - {fileID: 8300000, guid: 8f84faedc2da9e74593669eee3bce280, type: 3}
-  - {fileID: 8300000, guid: f2154dd2c6c97164fb2be226b48e1cdd, type: 3}
-  - {fileID: 8300000, guid: 6459b288e83f8eb45a98fa783af6d457, type: 3}
-  - {fileID: 8300000, guid: 3d03f737b543c144693abece36fe15fa, type: 3}
+  - {fileID: 8300000, guid: 49369bdd5dab8e74495da2a9711e6a6a, type: 3}
   - {fileID: 8300000, guid: 87e573738e9a1994baf4a651926668ca, type: 3}
-  - {fileID: 8300000, guid: 350712f080bb37d49aedfab943b9d92a, type: 3}
-  - {fileID: 8300000, guid: 342a01f19cfebbf418faa8286730cef3, type: 3}
-  - {fileID: 8300000, guid: 12e3a44f27eca7445bc5d47c439276fa, type: 3}
-  - {fileID: 8300000, guid: 655eb7ff9c5435e4d81af6cdaca6dfd3, type: 3}
-  - {fileID: 8300000, guid: 015614d58b2d71142b92dfb3e02a0242, type: 3}
+  - {fileID: 8300000, guid: 87e573738e9a1994baf4a651926668ca, type: 3}
 --- !u!82 &1779942175
 AudioSource:
   m_ObjectHideFlags: 0
