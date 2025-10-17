@@ -1,0 +1,40 @@
+#Unity LFS tracking
+*.a uselfs
+*.asset uselfs -text
+*.dll uselfs
+*.png uselfs
+*.jpg uselfs
+*.jpeg uselfs
+*.gif uselfs
+*.bmp uselfs
+*.tga uselfs
+*.tiff uselfs
+*.psd uselfs
+*.fbx uselfs
+*.obj uselfs
+*.3ds uselfs
+*.max uselfs
+*.blend uselfs
+*.mb uselfs
+*.ma uselfs
+*.mp3 uselfs
+*.wav uselfs
+*.ogg uselfs
+*.aiff uselfs
+*.mp4 uselfs
+*.mov uselfs
+*.avi uselfs
+*.wmv uselfs
+*.ttf uselfs
+*.otf uselfs
+*.unitypackage uselfs
+
+#Force text for mergeable files
+*.unity text merge=unityyamlmerge
+*.prefab text merge=unityyamlmerge
+*.mat text merge=unityyamlmerge
+*.anim text merge=unityyamlmerge
+*.controller text merge=unityyamlmerge
+*.meta text merge=unityyamlmerge
+*.asset text merge=unityyamlmerge
+*.wav filter=lfs diff=lfs merge=lfs -text
